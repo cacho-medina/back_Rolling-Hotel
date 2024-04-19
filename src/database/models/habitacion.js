@@ -11,16 +11,16 @@ const habitacionSchema = new Schema({
     precio: {
         type: Number,
         required: true,
-        min: 2500,
-        max: 10000,
+        min: 5000,
+        max: 100000,
     },
     descripcion: {
         type: String,
         required: true,
-        minLength: 50,
-        maxLength: 300,
+        minLength: 30,
+        maxLength: 500,
     },
-    disponible: {
+    activa: {
         type: Boolean,
         required: true,
     },
@@ -30,15 +30,10 @@ const habitacionSchema = new Schema({
         min: 1,
         max: 5,
     },
-    camas: {
+    personas: {
         type: Number,
         min: 1,
         max: 5,
-    },
-    fechaOcupada: {
-        type: [String],
-        required: true,
-        default: ["", ""],
     },
     imagen: {
         type: String,
