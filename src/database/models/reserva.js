@@ -13,20 +13,16 @@ const reservaSchema = new Schema({
         type: String,
         required: true,
     },
-    habId: {
-        type: String,
-        required: true,
-    },
     numeroHab: {
         type: Number,
         required: true,
     },
     ingreso: {
-        type: Date,
+        type: String,
         required: true,
     },
     salida: {
-        type: Date,
+        type: String,
         required: true,
     },
     monto: {

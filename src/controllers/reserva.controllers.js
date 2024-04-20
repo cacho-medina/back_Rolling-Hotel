@@ -34,8 +34,8 @@ export const postReserva = async (req, res) => {
 
         const fechaNodisponible = await Reserva.findOne({
             numeroHab,
-            ingreso: { $lt: salida },
-            salida: { $gt: ingreso },
+            ingreso: { $lt: salidaReserva },
+            salida: { $gt: ingresoReserva },
         });
         if (fechaNodisponible) {
             return res.status(400).json({
@@ -43,19 +43,7 @@ export const postReserva = async (req, res) => {
             });
         }
 
-        //calcular monto de reserva
-        const diferenciaMilisegundos =
-            salidaReserva.getTime() - ingresoReserva.getTime();
-
-        // Convierte la diferencia de milisegundos a días
-        const dias = diferenciaMilisegundos / (1000 * 3600 * 24);
-
-        // Redondea hacia arriba la cantidad de días si es necesario
-        const cantidadDias = Math.ceil(dias);
-        //precio
-        const monto = habitacion.precio * cantidadDias;
-
-        const reserva = new Reserva({ ...req.body, monto });
+        const reserva = new Reserva(req.body);
         await reserva.save();
         res.status(201).json({ message: "Reserva registrada con exito!" });
     } catch (error) {
