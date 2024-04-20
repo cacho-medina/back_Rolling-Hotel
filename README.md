@@ -15,4 +15,29 @@ gestion de habitaciones.
 
 ### Demo
 
-"LINK"
+["LINK"](https://server-rollinghotel.vercel.app/)
+
+### Endpoints
+Habitaciones
+```
+GET /api/habitacion
+GET /api/habitacion/${id}
+POST /api/habitacion
+DELETE /api/habitacion/${id}
+PUT /api/habitacion/${id}
+```
+Usuarios
+```
+GET /api/usuario
+GET /api/usuario/${id}
+POST /api/usuario
+DELETE /api/usuario/${id}
+PUT /api/usuario/${id}
+```
+Reservas
+```
+GET /api/reservas
+GET /api/reservas/${id}
+POST /api/reservas
+DELETE /api/reservas/${id}
+```
