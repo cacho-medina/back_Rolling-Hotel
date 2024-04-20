@@ -13,31 +13,31 @@ const validacionHabitacion = [
         .isNumeric()
         .withMessage("El precio debe ser un valor numerico")
         .custom((value) => {
-            if (value >= 2500 && value < 10000) {
+            if (value >= 5000 && value <= 100000) {
                 return true;
             } else {
                 throw new Error(
-                    "El precio debe ser un valor entre 2500 y 10000"
+                    "El precio debe ser un valor entre 5000 y 100000"
                 );
             }
         }),
     check("descripcion")
         .notEmpty()
         .withMessage("La descripcion de la habitacion es obligatoria")
-        .isLength({ min: 50, max: 300 })
-        .withMessage("La descripcion debe tener entre 50 y 300 caracteres"),
-    check("disponible")
+        .isLength({ min: 30, max: 500 })
+        .withMessage("La descripcion debe tener entre 30 y 500 caracteres"),
+    check("activa")
         .notEmpty()
-        .withMessage("La disponibilidad es obligatoria"),
+        .withMessage("El estado de la habitacion es obligatorio"),
     check("piso")
         .notEmpty()
         .withMessage("El piso de la habitacion es obligatorio")
         .isLength({ min: 1, max: 5 })
         .withMessage("El piso de la habitacion debe estar entre 1 y 5"),
-    check("camas")
+    check("personas")
         .isLength({ min: 1, max: 5 })
         .withMessage(
-            "La cantidad de camas de la habitacion debe estar entre 1 y 5"
+            "La cantidad de personas de la habitacion debe estar entre 1 y 5"
         ),
     check("imagen")
         .notEmpty()
